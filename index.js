@@ -9,6 +9,8 @@ var MESSAGE_TYPE = {
     DIRECT: 'D',
     CHANNEL: 'C'
 };
+var BLABOT_API = 'http://api.blabot.net/?format=json&scount=';
+var BLABOT_COUNT = 1;
 
 var rtm = new RtmSlack(BOT_TOKEN);
 var web = new WebSlack(BOT_TOKEN);
@@ -18,8 +20,6 @@ var utils = require('slack-utils/api')(BOT_TOKEN);
 console.log('Starting...');
 
 rtm.on(RTM_EVENTS.MESSAGE, function handleRtmMessage(message) {
-    // console.log('Message:', message); //this is no doubt the lamest possible message handler, but you get the idea
-
     if (message.channel[0] == MESSAGE_TYPE.CHANNEL) {
         if (message.user != BOT_ID && (message.text.indexOf(BOT_ID) > -1)) {
             var user = utils.userInfoById(message.user);
@@ -31,7 +31,7 @@ rtm.on(RTM_EVENTS.MESSAGE, function handleRtmMessage(message) {
 });
 
 function sendBlabot(message, toUser) {
-    rest.get('http://api.blabot.net/?format=json&scount=1', function (data, response) {
+    rest.get(`${BLABOT_API}${BLABOT_COUNT}`, function (data, response) {
         var json = JSON.parse(data.toString('utf8'));
         var blabot = json.blabot.result[0];
 
