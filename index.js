@@ -15,7 +15,8 @@ var rtm = new RtmClient(BOT_TOKEN);
 var rest = new RestClient();
 var utils = require('slack-utils/api')(BOT_TOKEN);
 
-console.log('Starting...');
+console.log('Starting Slackbot...');
+console.log('Token: %s ID: %s', BOT_TOKEN, BOT_ID);
 
 rtm.on(RTM_EVENTS.MESSAGE, function handleRtmMessage(message) {
     if (message.channel[0] == MESSAGE_TYPE.CHANNEL) {
