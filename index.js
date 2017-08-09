@@ -1,6 +1,5 @@
 var RestClient = require('node-rest-client').Client;
-var RtmSlack = require('@slack/client').RtmClient;
-var WebSlack = require('@slack/client').WebClient;
+var RtmClient = require('@slack/client').RtmClient;
 var RTM_EVENTS = require('@slack/client').RTM_EVENTS;
 
 var BOT_TOKEN = process.env.SLACK_BOT_TOKEN || '';
@@ -12,8 +11,7 @@ var MESSAGE_TYPE = {
 var BLABOT_API = 'http://api.blabot.net/?format=json&scount=';
 var BLABOT_COUNT = 1;
 
-var rtm = new RtmSlack(BOT_TOKEN);
-var web = new WebSlack(BOT_TOKEN);
+var rtm = new RtmClient(BOT_TOKEN);
 var rest = new RestClient();
 var utils = require('slack-utils/api')(BOT_TOKEN);
 
