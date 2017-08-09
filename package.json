@@ -1,0 +1,24 @@
+{
+  "name": "slackbot-blabot",
+  "version": "1.0.0",
+  "description": "Czech Lorem Ipsum bot for Slack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mosladil/slackbot-alfred.git"
+  },
+  "author": "mosladil@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mosladil/slackbot-alfred/issues"
+  },
+  "homepage": "https://github.com/mosladil/slackbot-alfred#readme",
+  "dependencies": {
+    "@slack/client": "^3.10.0",
+    "node-rest-client": "^3.1.0",
+    "slack-utils": "^0.3.1"
+  }
+}
